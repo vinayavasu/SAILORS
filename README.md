@@ -41,7 +41,7 @@ SAILORS is cross-referenced against:
 - OWASP Top 10 for Agentic Applications (the "Agentic Top 10")
 - MITRE ATLAS tactics (where applicable at the capability level)
 
-*(Full mapping table: see `/mapping`, in progress.)*
+*(Full mapping table: see `/mapping`)*
 
 ---
 
