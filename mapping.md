@@ -21,3 +21,9 @@ No single SAILORS letter maps to exactly one OWASP item, and that's expected. A 
 ## What's not here yet
 
 This is a first pass, built from the two OWASP taxonomies and a general read of ATLAS's structure, not from a full technique-by-technique crosswalk. If you're using this table for actual compliance mapping or a formal threat model, verify the ATLAS column against the current framework directly before relying on it. Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.
+
+Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.
+
+## Note on O and A (July 2026)
+
+O now has two trigger conditions (action-gating and scope-expansion-gating), both still mapping to the same OWASP/ATLAS categories listed above. A carries a new explicit boundary: once retrieval crosses an agent-to-agent trust boundary, the finding belongs in a MAESTRO-level review, not a SAILORS one. Credit to Harshad Sadashiv Kadam for both.
