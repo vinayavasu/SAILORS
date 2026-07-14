@@ -20,7 +20,7 @@ No single SAILORS letter maps to exactly one OWASP item, and that's expected. A 
 
 ## What's not here yet
 
-This is a first pass, built from the two OWASP taxonomies and a general read of ATLAS's structure, not from a full technique-by-technique crosswalk. If you're using this table for actual compliance mapping or a formal threat model, verify the ATLAS column against the current framework directly before relying on it. Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.
+This is a first pass, built from the two OWASP taxonomies and a general read of ATLAS's structure, not from a full technique-by-technique crosswalk. If you're using this table for actual compliance mapping or a formal threat model, verify the ATLAS column against the current framework directly before relying on it. 
 
 Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.
 
