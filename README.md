@@ -25,10 +25,10 @@ SAILORS is designed to be used at the feature level: a single RAG pipeline, a si
 | Letter | Principle | What it checks |
 |---|---|---|
 | **S** | Sanitize all inputs | Are user/tool inputs validated, encoded, and bounded before reaching the model? |
-| **A** | Access controls at retrieval | Does retrieval (RAG, tool calls, memory) respect the requesting user's actual permissions? |
+| **A** | Access controls at retrieval | Does retrieval (RAG, tool calls, memory) respect the requesting user's actual permissions? If retrieval is itself another agent's output, this becomes a MAESTRO question — cross-agent trust isn't a single-capability fix. |
 | **I** | Inspect and filter outputs | Is model output checked before it's rendered, executed, or passed downstream? |
 | **L** | Least privilege for tools | Does the capability hold only the permissions it needs, nothing more? |
-| **O** | Override gate for humans | Is there a human-in-the-loop checkpoint for consequential actions? |
+| **O** | Override gate for humans (action + scope) | Is there a human checkpoint before (1) a consequential action fires, and (2) any expansion in the capability's scope or permissions during a session? |
 | **R** | Record every action | Is there an audit trail sufficient to reconstruct what happened and why? |
 | **S** | System prompt hardening | Is the system prompt resistant to injection, leakage, and override attempts? |
 
@@ -59,6 +59,12 @@ A worked example is included in `/examples`.
 ## Status
 
 SAILORS is an early-stage, open framework. It's being actively used and refined in practitioner threat-modeling work. Feedback, critique, and real-world application notes are genuinely wanted, especially from anyone applying STRIDE or MAESTRO today who's hit the same capability-level gap.
+
+## Changelog
+
+**July 2026** — Two checks revised after practitioner review from Harshad Sadashiv Kadam :
+- **O** now covers two conditions instead of one: gating the action itself, and separately gating any mid-session growth in the capability's scope or permissions.
+- **A** now includes an explicit hand-off rule: when retrieval is another agent's output rather than a static lookup, defer to MAESTRO instead of stretching A to cover it.
 
 ## Author
 
