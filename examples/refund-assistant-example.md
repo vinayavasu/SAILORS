@@ -1,5 +1,8 @@
 # Worked Example: Support Assistant with Refund Capability
 
+**> Updated July 2026 to reflect two SAILORS revisions from practitioner feedback: O now includes a scope-expansion gate alongside the action gate, and A now includes a MAESTRO hand-off for agent-sourced retrieval. See the main README's Changelog for details.**
+
+
 **Capability being reviewed:** A customer support AI assistant that can look up a customer's order history and issue refunds under a configured dollar threshold, without human approval below that threshold.
 
 This is a worked example of applying SAILORS to a single AI capability during a design review, not a review of the whole support platform, just this one feature.
