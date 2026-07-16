@@ -66,6 +66,11 @@ SAILORS is an early-stage, open framework. It's being actively used and refined 
 - **O** now covers two conditions instead of one: gating the action itself, and separately gating any mid-session growth in the capability's scope or permissions.
 - **A** now includes an explicit hand-off rule: when retrieval is another agent's output rather than a static lookup, defer to MAESTRO instead of stretching A to cover it.
 
+## Roadmap
+
+- A lightweight proof-of-concept scanner (`/poc`) is in progress, prompted by feedback that the checklist needs a working demonstration, not just documentation.
+- Exploring how SAILORS could pair with an AI Bill of Materials (AIBOM) — using capability discovery to auto-trigger a SAILORS review when something new ships.
+
 ## Author
 
 **Vinaya Vasudevan**, AI Security Engineer, CAISP, SANS AIS247
