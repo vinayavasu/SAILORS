@@ -22,6 +22,8 @@ This is the one that showed up in almost every review I've run, not just this on
 
 **Fix:** Scope the query to the authenticated customer's own customer ID at the database layer, not just the prompt layer. The model should never have the *option* to retrieve another customer's order, no matter what it's asked.
 
+**Also check:** Is this retrieval actually static, or is it another agent's output? If a separate fraud-check agent were handing back a verdict on this customer instead of a direct database call, that's no longer a retrieval-permissions question — that's a MAESTRO question, since you'd be inheriting that agent's trust level instead of checking a permission directly.
+
 ---
 
 ## I — Inspect and filter outputs
@@ -49,6 +51,8 @@ The refund tool was wired to the same API credentials as the internal admin pane
 **Finding:** The threshold existed in the documentation. It did not exist in the code. The model could be talked into recommending a refund above it, and the system would just execute it.
 
 **Fix:** Enforce the threshold at the system level. Anything above it routes to a queue for human approval, regardless of how confident the model sounds.
+
+**Also check:** Is there a second gate for scope, not just the action? If this same assistant later gets handed a new capability — address changes, store credit, not just refunds — that's new scope, and it needs its own approval gate. It doesn't inherit approval from the original refund threshold just because it's the same assistant.
 
 ---
 
