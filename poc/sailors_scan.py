@@ -49,6 +49,16 @@ def scan_file(filepath):
         if "admin" in stripped.lower() or "all_permissions" in stripped.lower():
             findings.append(f"[L] Line {i}: overly broad permission grant -- {stripped}")
 
+        # L -- Least privilege for tools (resource-usage scope).
+        # Flag unbounded loops (while True, or a for/while with no visible
+        # break/limit) that sit near a tool-call or API-call line -- a
+        # signal of unbounded downstream calls, not just broad permissions.
+        if stripped.startswith("while True") or stripped.startswith("while 1"):
+            nearby = "".join(lines[i - 1:min(len(lines), i + 5)])
+            limit_keywords = ["break", "max_calls", "max_retries", "count >=", "count ==", "rate_limit"]
+            if not any(k in nearby for k in limit_keywords):
+                findings.append(f"[L] Line {i}: unbounded loop with no visible call limit -- {stripped}")
+
         # O -- Override gate for humans (action + scope).
         # Flag consequential-sounding actions with no nearby confirm/approval check.
         # Skip function definitions themselves -- only flag call sites.
