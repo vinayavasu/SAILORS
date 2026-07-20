@@ -39,17 +39,44 @@ SAILORS scan results for: test_pto_assistant.py
 [L] Line 23: overly broad permission grant -- user.permissions = "admin"
 [L] Line 24: overly broad permission grant -- user.all_permissions = True
 [O] Line 29: consequential action with no nearby override gate -- approve_transaction(amount)
+[L] Line 34: unbounded loop with no visible call limit -- while True:
 [R] No logging/audit calls found anywhere in this file
 ------------------------------------------------------------
-7 finding(s).
+8 finding(s).
 
 Note: this is a lightweight keyword/pattern scanner, not full
 static analysis. Findings are a starting point for manual
 SAILORS review, not a replacement for it.
 ```
 
-Seven findings, one for each intentional flaw baked into the test file --
+Eight findings, one for each intentional flaw baked into the test file --
 no false positives, no crashes.
+
+## What's new here vs. the SAILORS framework definition
+
+The main README's L check now also covers resource-usage scope (token
+exhaustion, unbounded tool calls) -- following feedback from a
+practitioner review. This scanner now catches one concrete pattern of
+that: an unbounded loop (`while True` with no visible break/limit)
+sitting near a downstream call.
+
+**Worth being upfront about what this PoC does *not* yet catch,** even
+though the framework definition now covers it:
+
+- **A's MAESTRO hand-off** (retrieval from another agent vs. a static
+  lookup) -- not detectable by reading one file's text. Knowing whether
+  a function call is "another agent's output" requires understanding
+  the broader system, not just this file.
+- **O's scope-expansion gate** (a capability quietly gaining new tools
+  or permissions across a session) -- requires comparing state over
+  time, not something visible in a single static read of one file.
+- **R's log-trust note** (whether a log entry was written by the agent
+  itself vs. an independent system) -- requires knowing *who* wrote a
+  given log call, not just whether one exists.
+
+Same honest category as I and the second S below: these are context-
+dependent checks that pattern matching structurally can't do well.
+Faking a shallow check for them would be worse than leaving them out.
 
 ## Checks currently covered
 
@@ -58,7 +85,7 @@ no false positives, no crashes.
 | S -- Sanitize inputs | Yes | Flags `input()` calls with no nearby validation |
 | A -- Access controls at retrieval | Yes | Flags queries with no per-user scoping |
 | I -- Inspect and filter outputs | Not yet | |
-| L -- Least privilege for tools | Yes | Flags overly broad permission grants |
+| L -- Least privilege for tools | Yes (partial) | Flags overly broad permission grants, and unbounded loops with no visible call limit |
 | O -- Override gate for humans | Yes | Flags consequential actions with no nearby confirm/approval |
 | R -- Record every action | Yes | Flags files with no logging calls at all |
 | S -- System prompt hardening | Not yet | |
