@@ -23,16 +23,22 @@ python sailors_scan.py test_pto_assistant.py
 ```
 
 `test_pto_assistant.py` is a small, deliberately flawed example --
-several SAILORS checks are intentionally violated in it so the scanner
-has real findings to catch. Expect output like:
 
-```
-[A] Line 10: retrieval has no per-user scoping -- ...
-[S] Line 14: input not sanitized -- ...
-[O] Line 17: consequential action with no nearby override gate -- ...
-[L] Line 23: overly broad permission grant -- ...
+SAILORS scan results for: test_pto_assistant.py
+------------------------------------------------------------
+[A] Line 10: retrieval has no per-user scoping -- return query_database("SELECT * FROM employees")
+[S] Line 14: input not sanitized -- raw_days = input("How many days off do you want? ")  # S: no sanitization
+[O] Line 17: consequential action with no nearby override gate -- file_request(employee_id, raw_days)  # O: fires immediately, no manager gate
+[L] Line 23: overly broad permission grant -- user.permissions = "admin"
+[L] Line 24: overly broad permission grant -- user.all_permissions = True
+[O] Line 29: consequential action with no nearby override gate -- approve_transaction(amount)
 [R] No logging/audit calls found anywhere in this file
-```
+------------------------------------------------------------
+7 finding(s).
+
+Note: this is a lightweight keyword/pattern scanner, not full
+static analysis. Findings are a starting point for manual
+SAILORS review, not a replacement for it.
 
 ## Checks currently covered
 
