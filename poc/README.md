@@ -18,12 +18,19 @@ scoping choice for this first pass, not a hidden limitation.
 
 ## Try it
 
-```bash
+```
 python sailors_scan.py test_pto_assistant.py
 ```
 
 `test_pto_assistant.py` is a small, deliberately flawed example --
+several SAILORS checks are intentionally violated in it so the scanner
+has real findings to catch.
 
+## Example output
+
+Running it against the included `test_pto_assistant.py`:
+
+```
 SAILORS scan results for: test_pto_assistant.py
 ------------------------------------------------------------
 [A] Line 10: retrieval has no per-user scoping -- return query_database("SELECT * FROM employees")
@@ -39,6 +46,10 @@ SAILORS scan results for: test_pto_assistant.py
 Note: this is a lightweight keyword/pattern scanner, not full
 static analysis. Findings are a starting point for manual
 SAILORS review, not a replacement for it.
+```
+
+Seven findings, one for each intentional flaw baked into the test file --
+no false positives, no crashes.
 
 ## Checks currently covered
 
@@ -58,7 +69,7 @@ out of this first pass rather than faked with a shallow, unreliable check.
 
 ## Try it on your own code
 
-```bash
+```
 python sailors_scan.py path/to/your_file.py
 ```
 
