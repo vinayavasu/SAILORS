@@ -29,6 +29,18 @@ def approve_expense(user, amount):
     approve_transaction(amount)
 
 
+def retry_refund_call(order_id):
+    # L: unbounded retry loop -- no cap on downstream calls
+    while True:
+        result = call_payment_api(order_id)
+        if result == "success":
+            return result
+
+
+def call_payment_api(order_id):
+    return "pending"
+
+
 def query_database(q):
     return []
 
