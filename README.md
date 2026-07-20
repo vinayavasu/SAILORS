@@ -14,7 +14,7 @@ SAILORS fills that gap.
 |---|---|---|
 | STRIDE | Traditional systems | What can go wrong with this system's data flows? |
 | MAESTRO | Agentic AI architectures | What can go wrong across this multi-agent system? |
-| **SAILORS** | **Individual AI capabilities** | **What do we check before this specific AI feature ships?** |
+| **SAILORS** | **Individual AI capabilities** | **What do we check before this specific AI feature ships — and again at every significant change?** |
 
 SAILORS is designed to be used at the feature level: a single RAG pipeline, a single tool-calling capability, a single LLM-backed endpoint, not the whole system or the whole agent architecture. It's meant to be fast enough to run in a design review, not just a compliance exercise.
 
@@ -27,9 +27,9 @@ SAILORS is designed to be used at the feature level: a single RAG pipeline, a si
 | **S** | Sanitize all inputs | Are user/tool inputs validated, encoded, and bounded before reaching the model? |
 | **A** | Access controls at retrieval | Does retrieval (RAG, tool calls, memory) respect the requesting user's actual permissions? If retrieval is itself another agent's output, this becomes a MAESTRO question — cross-agent trust isn't a single-capability fix. |
 | **I** | Inspect and filter outputs | Is model output checked before it's rendered, executed, or passed downstream? |
-| **L** | Least privilege for tools | Does the capability hold only the permissions it needs, nothing more? |
+| **L** | Least privilege for tools | Does the capability hold only the permissions it needs, nothing more? Includes resource-usage scope — token exhaustion and unbounded tool calls are permission problems, not input problems. |
 | **O** | Override gate for humans (action + scope) | Is there a human checkpoint before (1) a consequential action fires, and (2) any expansion in the capability's scope or permissions during a session? |
-| **R** | Record every action | Is there an audit trail sufficient to reconstruct what happened and why? |
+| **R** | Record every action | Is there an audit trail sufficient to reconstruct what happened and why? If the agent writes its own log, the log is only as trustworthy as the agent — route logs through a channel the capability can't modify, where possible. |
 | **S** | System prompt hardening | Is the system prompt resistant to injection, leakage, and override attempts? |
 
 ---
@@ -62,9 +62,14 @@ SAILORS is an early-stage, open framework. It's being actively used and refined 
 
 ## Changelog
 
-**July 2026** — Two checks revised after practitioner review from Harshad Sadashiv Kadam :
+**July 2026**
+**Two checks revised after practitioner review from Harshad Sadashiv Kadam:**
 - **O** now covers two conditions instead of one: gating the action itself, and separately gating any mid-session growth in the capability's scope or permissions.
 - **A** now includes an explicit hand-off rule: when retrieval is another agent's output rather than a static lookup, defer to MAESTRO instead of stretching A to cover it.
+**Three refinements following review from Shivam Dhar:**
+- L now explicitly covers resource-usage scope — token exhaustion and unbounded tool calls are permission problems, not input problems.
+- R now includes a log-trust note for agent-written audit trails.
+- The framing question now reflects continuous re-running, not just pre-ship review.
 
 ## Roadmap
 
