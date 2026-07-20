@@ -66,6 +66,7 @@ SAILORS is an early-stage, open framework. It's being actively used and refined 
 **Two checks revised after practitioner review from Harshad Sadashiv Kadam:**
 - **O** now covers two conditions instead of one: gating the action itself, and separately gating any mid-session growth in the capability's scope or permissions.
 - **A** now includes an explicit hand-off rule: when retrieval is another agent's output rather than a static lookup, defer to MAESTRO instead of stretching A to cover it.
+
 **Three refinements following review from Shivam Dhar:**
 - L now explicitly covers resource-usage scope — token exhaustion and unbounded tool calls are permission problems, not input problems.
 - R now includes a log-trust note for agent-written audit trails.
