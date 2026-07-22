@@ -11,6 +11,7 @@ This folder holds a real, complete comparison between SAILORS and Praxen (Steve 
 
 
 **WORKER_REMIT.md** — the policy document authored from FinBot's own docs (not its code), per Praxen's quickstart instructions
+
 **finbot-analysis-20260721.html / .txt** - the actual rendered Praxen report: RAISE posture 0.60/5 (Absent), 5 findings, all with file:line evidence
 
 The relationship, in short: SAILORS is a pre-ship checklist — seven questions run during design review, before an AI capability exists. Praxen is post-build verification — it reads deployed code and proves, with evidence, whether the things SAILORS would have asked about are actually there.
