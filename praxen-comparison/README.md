@@ -1,5 +1,5 @@
-**SAILORS vs. Praxen - a practitioner comparison
-**
+**SAILORS vs. Praxen - a practitioner comparison**
+
 This folder holds a real, run-through-completion comparison between SAILORS and Praxen (Steve Wilson's agent behavior verifier, built on the RAISE framework), done against FinBot, the OWASP Agentic AI CTF demo agent.
 
 **What's here:**
