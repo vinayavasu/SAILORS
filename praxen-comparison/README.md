@@ -18,3 +18,5 @@ Praxen is post-build verification —> it reads deployed code and proves, with e
 Same underlying concerns (access control, override gates, audit trails), different point in the lifecycle. Several of FinBot's five findings here map directly to what a SAILORS review would have flagged on paper before any of this code shipped — Praxen is what caught them for real, after the fact, with a score attached.
 
 These are independent findings from running Praxen's public quickstart, not an endorsement or partnership. Full tool and framework credit: Praxen.
+
+📄 [View the rendered report](https://vinayavasu.github.io/SAILORS/praxen-comparison/finbot-analysis-20260721.html)
