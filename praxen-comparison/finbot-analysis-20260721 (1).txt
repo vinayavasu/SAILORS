@@ -1,0 +1,114 @@
+==============================================================================
+PRAXEN — AGENT BEHAVIOR VERIFIER
+Agent:    FinBot
+Analysis: July 21, 2026, 20:26 UTC
+Praxen v1.1.0
+==============================================================================
+
+BEHAVIOR SUMMARY
+------------------------------------------------------------------------------
+FinBot's observed behavior diverges sharply from its declared remit in one
+connected chain: an unauthenticated admin plane allows anyone to rewrite the
+agent's goals or disable its own security controls, the invoice-approval
+function itself has no server-side threshold check, and a detected prompt
+injection can still be auto-approved if 'business context' scores high enough.
+No security-relevant action in this chain is logged anywhere.
+
+RAISE MATURITY POSTURE
+------------------------------------------------------------------------------
+  Weighted overall:  0.60 / 5.0   (Absent)
+  Limit Your Domain              1/5   (confidence: Medium, weight: 15%)
+  Balance Your Knowledge Base    2/5   (confidence: Low, weight: 15%)
+  Implement Zero Trust           0/5   (confidence: High, weight: 25%)
+  Manage Your Supply Chain       1/5   (confidence: Low, weight: 15%)
+  Build an AI Red Team           0/5   (confidence: Medium, weight: 15%)
+  Monitor Continuously           0/5   (confidence: High, weight: 15%)
+
+FINDINGS
+------------------------------------------------------------------------------
+  Critical: 3   High: 2   Medium: 0   Low: 0   Informational: 0
+  Total: 5
+
+REMIT COVERAGE
+------------------------------------------------------------------------------
+  Verified: 1   Gap: 6   Partial: 1   Vague: 0   Enforcement-not-possible: 0   (of 8 rules)
+
+OWASP LLM TOP 10 COVERAGE
+------------------------------------------------------------------------------
+  LLM01  Prompt Injection                                   2
+  LLM02  Sensitive Information Disclosure                   —
+  LLM03  Supply Chain                                       —
+  LLM04  Data and Model Poisoning                           —
+  LLM05  Improper Output Handling                           —
+  LLM06  Excessive Agency                                   1
+  LLM07  System Prompt Leakage                              —
+  LLM08  Vector and Embedding Weaknesses                    —
+  LLM09  Misinformation                                     —
+  LLM10  Unbounded Consumption                              —
+
+OWASP AGENTIC TOP 10 COVERAGE
+------------------------------------------------------------------------------
+  ASI01  Agent Goal Hijack                                  3
+  ASI02  Tool Misuse and Exploitation                       —
+  ASI03  Identity and Privilege Abuse                       1
+  ASI04  Agentic Supply Chain Vulnerabilities               —
+  ASI05  Unexpected Code Execution (RCE)                    —
+  ASI06  Memory and Context Poisoning                       —
+  ASI07  Insecure Inter-Agent Communication                 —
+  ASI08  Cascading Failures                                 —
+  ASI09  Human-Agent Trust Exploitation                     —
+  ASI10  Rogue Agents                                       1
+
+CRITICAL FINDINGS
+------------------------------------------------------------------------------
+  PRAX-2026-07-21-001  Admin plane (goals, config, invoice review, vendor
+            trust) has no authentication of any kind
+      Action 1: Add an authentication/authorization check (session-based admin
+                login or API key) that runs before every route in admin_bp,
+                not just the ones that look sensitive.
+      Action 2: Specifically gate update_finbot_goals and update_finbot_config
+                behind that check first, since they alter the agent's own
+                security posture.
+
+  PRAX-2026-07-21-002  Invoice approval has no server-side enforcement of the
+            manual-review threshold
+      Action 1: Add a hard, independent check immediately before any commit in
+                _approve_invoice: if invoice.amount >
+                config.manual_review_threshold, reject the approval path
+                entirely regardless of confidence, reasoning, or
+                business_context score.
+      Action 2: That gate must not be expressible as an LLM tool-call outcome
+                - it should run in code the model cannot talk its way around.
+
+  PRAX-2026-07-21-003  Unauthenticated goals endpoint injects
+            operator-supplied text with override priority into the system
+            prompt
+      Action 1: Require authenticated, role-gated access before any
+                custom_goals write (shared root cause with
+                PRAX-2026-07-21-001).
+      Action 2: Even for authorized updates, do not let injected goal text
+                override baseline security-relevant behavior (fraud detection,
+                thresholds) - separate 'business preference' goals from
+                'security control' goals structurally so one cannot override
+                the other.
+
+HIGH FINDINGS
+------------------------------------------------------------------------------
+  PRAX-2026-07-21-004  A detected prompt injection can still be auto-approved
+            if business-context scoring is high enough
+      Action: When contains_prompt_injection is true, remove every code path
+              that can still resolve to auto_approve; route unconditionally to
+              human review regardless of business_context or speed_priority.
+
+  PRAX-2026-07-21-005  No persisted audit trail for any security-relevant
+            admin action
+      Action: Add structured, persisted audit logging for update_finbot_goals,
+              update_finbot_config, review_invoice, and update_vendor_trust:
+              who changed what, previous and new values, and a timestamp,
+              written somewhere durable - not console print().
+
+==============================================================================
+Built on OWASP Top 10 for LLM Applications 2025  |  OWASP Top 10 for Agentic Applications 2026  |  RAISE Framework
+Generated by Praxen  |  project sponsor: Exabeam (https://www.exabeam.com/)
+github.com/open-agent-ai-security/praxen  |  Apache-2.0
+==============================================================================
