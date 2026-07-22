@@ -13,6 +13,8 @@ This folder holds a real, run-through-completion comparison between SAILORS and 
 
 SAILORS is a pre-ship checklist -> seven questions run during design review, before an AI capability exists. 
 Praxen is post-build verification —> it reads deployed code and proves, with evidence, whether the things SAILORS would have asked about are actually there. 
+
+
 Same underlying concerns (access control, override gates, audit trails), different point in the lifecycle. Several of FinBot's five findings here map directly to what a SAILORS review would have flagged on paper before any of this code shipped — Praxen is what caught them for real, after the fact, with a score attached.
 
 These are independent findings from running Praxen's public quickstart, not an endorsement or partnership. Full tool and framework credit: Praxen.
