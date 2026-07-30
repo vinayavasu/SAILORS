@@ -64,7 +64,7 @@ See [`/poc`](poc) for the scanner, a test file, and example output.
 
 SAILORS covers the design review — what to check before a capability ships. Two frameworks go deeper once the capability is built and deployed:
 
-- **[RAISE](https://open-agent-ai-security.github.io/praxen/guide/RAISE.html)** (Responsible AI Software Engineering) — Steve Wilson's maturity model for how an agent is engineered, secured, tested, and operated. Assesses six categories: Zero Trust, Knowledge Base, Domain Limits, Monitoring, Supply Chain, and AI Red Team.
+- **[RAISE](https://open-agent-ai-security.github.io/praxen/guide/RAISE.html)** (Responsible AI Security Engineering) — Steve Wilson's maturity model for how an agent is engineered, secured, tested, and operated. Assesses six categories: Zero Trust, Knowledge Base, Domain Limits, Monitoring, Supply Chain, and AI Red Team.
 - **[Praxen](https://open-agent-ai-security.github.io/praxen/)** — open-source agent behavior verifier. Reads an agent's code and deployment state, checks it against a declared policy (Worker Remit), and produces a scored posture report with file:line evidence.
 
 SAILORS asks the questions at design time. RAISE assesses maturity across the agent's engineering. Praxen verifies the controls are actually implemented, after the code exists.
