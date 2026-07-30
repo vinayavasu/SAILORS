@@ -54,7 +54,22 @@ SAILORS is cross-referenced against:
 
 A worked example is included in `/examples`.
 
----
+## SAILORS-Verify (PoC Scanner)
+
+A lightweight proof-of-concept scanner that runs SAILORS' seven checks against real Python code. Covers 5 of 7 checks (S, A, L, O, R) via pattern matching. Honestly documents what it can't yet catch (I, system prompt hardening, and three refined sub-checks that need cross-file context). Not full static analysis — a starting point for a manual review, not a replacement for one.
+
+See [`/poc`](poc) for the scanner, a test file, and example output.
+
+## What Comes After SAILORS
+
+SAILORS covers the design review — what to check before a capability ships. Two frameworks go deeper once the capability is built and deployed:
+
+- **[RAISE](https://open-agent-ai-security.github.io/praxen/guide/RAISE.html)** (Responsible AI Software Engineering) — Steve Wilson's maturity model for how an agent is engineered, secured, tested, and operated. Assesses six categories: Zero Trust, Knowledge Base, Domain Limits, Monitoring, Supply Chain, and AI Red Team.
+- **[Praxen](https://open-agent-ai-security.github.io/praxen/)** — open-source agent behavior verifier. Reads an agent's code and deployment state, checks it against a declared policy (Worker Remit), and produces a scored posture report with file:line evidence.
+
+SAILORS asks the questions at design time. RAISE assesses maturity across the agent's engineering. Praxen verifies the controls are actually implemented, after the code exists.
+
+A worked comparison of SAILORS and Praxen/RAISE against a deliberately broken demo agent (FinBot) is in [`/praxen-comparison`](praxen-comparison) — including a [full FinBot analysis report](https://vinayavasu.github.io/SAILORS/praxen-comparison/finbot-analysis-20260721.html).
 
 ## Status
 
@@ -74,8 +89,9 @@ SAILORS is an early-stage, open framework. It's being actively used and refined 
 
 ## Roadmap
 
-- A lightweight proof-of-concept scanner (`/poc`) is in progress, prompted by feedback that the checklist needs a working demonstration, not just documentation.
-- Exploring how SAILORS could pair with an AI Bill of Materials (AIBOM) — using capability discovery to auto-trigger a SAILORS review when something new ships.
+- **SAILORS-Verify** (`/poc`) is live — covers 5 of 7 checks (S, A, L, O, R) as a pattern-matching scanner. Next: AST-based analysis for cross-file checks (A's MAESTRO hand-off, O's scope-expansion gate, R's log-trust note), and coverage for I and system prompt hardening.
+- **CI integration** — exploring how to run SAILORS-Verify as a pre-merge gate, not just a standalone script.
+- **AIBOM pairing** — exploring how SAILORS could pair with an AI Bill of Materials, using capability discovery to auto-trigger a review when something new ships.
 
 ## Author
 
