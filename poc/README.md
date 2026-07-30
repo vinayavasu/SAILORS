@@ -82,13 +82,14 @@ Faking a shallow check for them would be worse than leaving them out.
 | Letter | Covered in this PoC? | How |
 |---|---|---|
 | S -- Sanitize inputs | Yes | Flags `input()` calls with no nearby validation |
-| A -- Access controls at retrieval | Yes (partial) | Flags queries with no per-user scoping (does not detect agent-sourced retrieval requiring MAESTRO hand-off) || I -- Inspect and filter outputs | Not yet | |
+| A -- Access controls at retrieval | Yes (partial) | Flags queries with no per-user scoping (does not detect agent-sourced retrieval requiring MAESTRO hand-off) |
+| I -- Inspect and filter outputs | Not yet | |
 | L -- Least privilege for tools | Yes (partial) | Flags overly broad permission grants, and unbounded loops with no visible call limit |
 | O -- Override gate for humans | Yes (partial) | Flags consequential actions with no nearby confirm/approval (does not detect mid-session scope expansion) |
 | R -- Record every action | Yes (partial) | Flags files with no logging calls at all (does not verify logs are written by an independent system) |
 | S -- System prompt hardening | Not yet | |
 
-I and the second S are harder to catch with pattern matching alone (they depend on context an AST or LLM-based pass would handle better) -- left out of this first pass rather than faked with a shallow, unreliable check. A, O, and R are marked as partial: their basic patterns are caught, but each has a refined sub-check (A's MAESTRO hand-off, O's scope-expansion gate, R's log-trust note) that needs cross-file or cross-session context pattern matching can't do.
+I and the second S are harder to catch with pattern matching alone (they depend on context an AST or LLM-based pass would handle better) -- left out of this first pass rather than faked with a shallow, unreliable check. A, O, and R are marked as partial: their basic patterns are caught, but each has a refined sub-check (A's MAESTRO hand-off, O's scope-expansion gate, R's log-trust note) that needs cross-file or cross-session context — which pattern matching structurally can't do.
 
 ## Try it on your own code
 
