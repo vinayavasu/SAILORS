@@ -20,4 +20,4 @@ Same underlying concerns (access control, override gates, audit trails), differe
 
 These are independent findings from running Praxen's public quickstart, not an endorsement or partnership. Full tool and framework credit: Praxen.
 
-
+Here is the hashnode blog post : https://prompt-to-patch-vinaya.hashnode.dev/what-praxen-found-on-finbot-and-where-sailors-fits
