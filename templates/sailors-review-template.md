@@ -185,14 +185,14 @@
 
 1. [Risk that is accepted and why]
 
-### Final Decision
+## Final Decision
 
-[ ] APPROVE - Ship as-is
-[ ] APPROVE WITH FIXES - Ship after listed fixes are completed
-[ ] BLOCK - Do not ship until critical findings are resolved
-[ ] NEEDS RE-REVIEW - Re-run SAILORS after changes are made
+- [ ] **APPROVE** - Ship as-is  
+- [ ] **APPROVE WITH FIXES** - Ship after listed fixes are completed  
+- [ ] **BLOCK** - Do not ship until critical findings are resolved  
+- [ ] **NEEDS RE-REVIEW** - Re-run SAILORS after changes are made  
 
-**Sign-off:** [Reviewer name and date]
+**Sign-off:** [Reviewer name and date]  
 
 ---
 
@@ -200,14 +200,14 @@
 
 This capability should be re-reviewed with SAILORS when:
 
-[ ] New model or provider is used
-[ ] New retrieval source is added
-[ ] New tool or API is connected
-[ ] Permissions are expanded
-[ ] New autonomous or consequential action is added
-[ ] System prompt is materially changed
-[ ] Output channel changes
-[ ] Memory or vector store changes
-[ ] Incident or near miss occurs
+- [ ] New model or provider is used  
+- [ ] New retrieval source is added  
+- [ ] New tool or API is connected  
+- [ ] Permissions are expanded  
+- [ ] New autonomous or consequential action is added  
+- [ ] System prompt is materially changed  
+- [ ] Output channel changes  
+- [ ] Memory or vector store changes  
+- [ ] Incident or near miss occurs  
 
 **Next scheduled review date:** [Date or "On next significant change"]
