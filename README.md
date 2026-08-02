@@ -188,7 +188,8 @@ Two checks were revised after practitioner review from **Harshad Sadashiv Kadam*
 - **Credentials:** CAISP
 - **Portfolio:** SANS AIS247 Portfolio
 - **Website:** `vinayavasu.github.io`
-- **Writing:** Prompt to Patch
+- **Writing:** [Prompt to Patch](https://prompt-to-patch-vinaya.hashnode.dev/)
+- **LinkedIn:** [vinayavasudevan](https://www.linkedin.com/in/vinayavasudevan)
 
 ## Contributing
 
