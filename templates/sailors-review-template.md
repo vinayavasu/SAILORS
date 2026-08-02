@@ -6,15 +6,17 @@
 
 ## Capability Information
 
-**Capability Name:** [What AI feature is being reviewed?] |
-**Owner:** [Who is responsible for this capability?] |
-**Date:** [Review date]
-**Reviewers:** [Who is in the review?]
-**AIBOM ID:** [Link to AIBOM entry, if available]
-**Model/Provider:** [Which LLM or model is used?]
-**Data Sources:** [What data does this capability access? RAG, databases, APIs]
-**Tools/Actions:** [What tools can this capability call? What actions can it take?]
-**Output Destinations:** [Where does the output go? UI, API, database, another system]
+## Capability Information
+
+**Capability Name:** [What AI feature is being reviewed?]  
+**Owner:** [Who is responsible for this capability?]  
+**Date:** [Review date]  
+**Reviewers:** [Who is in the review?]  
+**AIBOM ID:** [Link to AIBOM entry, if available]  
+**Model/Provider:** [Which LLM or model is used?]  
+**Data Sources:** [What data does this capability access? RAG, databases, APIs]  
+**Tools/Actions:** [What tools can this capability call? What actions can it take?]  
+**Output Destinations:** [Where does the output go? UI, API, database, another system]  
 **Consequential Actions:** [What actions have real-world impact? Emails, purchases, data modifications]
 
 ---
