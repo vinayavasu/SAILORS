@@ -6,8 +6,8 @@
 
 ## Capability Information
 
-**Capability Name:** [What AI feature is being reviewed?]
-**Owner:** [Who is responsible for this capability?]
+**Capability Name:** [What AI feature is being reviewed?] |
+**Owner:** [Who is responsible for this capability?] |
 **Date:** [Review date]
 **Reviewers:** [Who is in the review?]
 **AIBOM ID:** [Link to AIBOM entry, if available]
