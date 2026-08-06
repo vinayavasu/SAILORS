@@ -87,11 +87,13 @@ The scanner, a test file, and example output are in `/poc`.
 
 SAILORS is cross-referenced against:
 
-- OWASP Top 10 for LLM Applications
-- OWASP Top 10 for Agentic Applications, referred to as the "Agentic Top 10"
+- OWASP Top 10 for LLM Applications (2026)
+- OWASP Top 10 for Agentic Applications (2026)
 - MITRE ATLAS tactics, where applicable at the capability level
 
-The full mapping table is in `/mapping`.
+The full mapping table is in [mapping.md](mapping.md). A coverage matrix showing what SAILORS covers directly, partially, and what companion controls fill the gaps is in [docs/owasp-coverage-matrix.md](docs/owasp-coverage-matrix.md).
+
+SAILORS provides direct or partial design-time coverage for most capability-level OWASP LLM and Agentic risks. For architecture-level and runtime risks (supply chain, data poisoning, unbounded consumption, inter-agent communication), SAILORS defines companion controls rather than extending the 7-check scope.
 
 ## What Comes After SAILORS
 
@@ -146,6 +148,13 @@ Current status: v1.0. Seeking practitioner feedback from teams shipping AI capab
 - Updated README with review template and AIBOM trigger sections.
 - Updated "How to Use It" section to reference the review template.
 
+### August 2026
+
+- Updated OWASP LLM Top 10 mapping to 2026 edition (released August 4, 2026).
+- Added OWASP Agentic Top 10 (2026) mapping.
+- Added coverage matrix (`docs/owasp-coverage-matrix.md`) showing direct, partial, and companion control coverage.
+- Key change: Excessive Agency moved from #6 to #3; System Prompt Leakage renamed to Hidden Context Exposure; Improper Output Handling dropped from #5 to #10.
+  
 ### July 2026
 
 Two checks were revised after practitioner review from **Harshad Sadashiv Kadam**:
