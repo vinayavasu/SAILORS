@@ -44,12 +44,14 @@ SAILORS provides direct or partial design-time coverage for most capability-leve
 
 This is a first pass, built from the two OWASP taxonomies and a general read of ATLAS's structure, not from a full technique-by-technique crosswalk. If you're using this table for actual compliance mapping or a formal threat model, verify the ATLAS column against the current framework directly before relying on it.
 
-Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.
-**
+**Corrections and refinements welcome, that's exactly the kind of contribution this repo is asking for.**
+
 **Note on O and A (July 2026)**
 
 O now has two trigger conditions (action-gating and scope-expansion-gating), both still mapping to the same OWASP/ATLAS categories listed above. A carries a new explicit boundary: once retrieval crosses an agent-to-agent trust boundary, the finding belongs in a MAESTRO-level review, not a SAILORS one. Credit to Harshad Sadashiv Kadam for both.
 
-****Note on the 2026 update (August 2026)**
+
+**Note on the 2026 update (August 2026)**
+
 
 Mapping updated to reflect OWASP LLM Top 10 2026 (released August 4, 2026) and OWASP Agentic Top 10 2026. The previous mapping used 2025 OWASP IDs. See the changelog above for specific changes.
