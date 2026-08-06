@@ -134,7 +134,7 @@ SAILORS is an early-stage, open framework with:
 - Fillable review template for 30-minute design reviews
 - AIBOM trigger model connecting capability changes to reviews
 - SAILORS-Verify PoC scanner (5 of 7 checks)
-- Mapping to OWASP LLM Top 10 and MITRE ATLAS
+- Mapping to OWASP LLM Top 10 (2026), Agentic Top 10 (2026), and MITRE ATLAS
 - Worked examples and Praxen comparison
 
 Current status: v1.0. Seeking practitioner feedback from teams shipping AI capabilities. See the [review template](templates/sailors-review-template.md) to try it on one of your features.
