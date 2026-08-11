@@ -1,6 +1,6 @@
 # SAILORS Review Template
 
-**Instructions:** Instructions: First, threat model the AI capability (using STRIDE or MAESTRO) to identify what can go wrong. Use the threat model to determine which SAILORS checks are relevant. Then fill out only the relevant checks during a 30-minute review before the AI capability ships. One capability per review. If a check is not applicable, mark N/A and explain why. Documenting why something is not applicable is itself a security decision.
+**Instructions:** First, threat model the AI capability (using STRIDE or MAESTRO) to identify what can go wrong. Use the threat model to determine which SAILORS checks are relevant. Then fill out only the relevant checks during a 30-minute review before the AI capability ships. One capability per review. If a check is not applicable, mark N/A and explain why. Documenting why something is not applicable is itself a security decision.
 
 ---
 
