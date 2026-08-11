@@ -1,10 +1,8 @@
 # SAILORS Review Template
 
-**Instructions:** Fill this out during a 30-minute design review before an AI capability ships. One capability per review. If a check is not applicable, mark N/A and explain why. Documenting why something is not applicable is itself a security decision.
+**Instructions:** Instructions: First, threat model the AI capability (using STRIDE or MAESTRO) to identify what can go wrong. Use the threat model to determine which SAILORS checks are relevant. Then fill out only the relevant checks during a 30-minute review before the AI capability ships. One capability per review. If a check is not applicable, mark N/A and explain why. Documenting why something is not applicable is itself a security decision.
 
 ---
-
-## Capability Information
 
 ## Capability Information
 
@@ -18,6 +16,18 @@
 **Tools/Actions:** [What tools can this capability call? What actions can it take?]  
 **Output Destinations:** [Where does the output go? UI, API, database, another system]  
 **Consequential Actions:** [What actions have real-world impact? Emails, purchases, data modifications]
+
+---
+
+## Threat Assessment (Prerequisite)
+
+**Threat Model Reference:** [Which threat modeling method was used? STRIDE / MAESTRO / PASTA / Other]
+
+**Key Threats Identified:** [What can go wrong with this capability?]
+
+**SAILORS Checks Selected Based on Threats:** [Which of the 7 checks are relevant? List them. Example: S, L, O, R]
+
+**Checks Marked N/A (Not Relevant):** [Which checks are not relevant and why? Example: A - No retrieval used. I - No user-facing output.]
 
 ---
 
@@ -164,7 +174,9 @@
 
 ## Summary
 
-**Total Checks:** 7
+**Total Checks: 7
+Checks Selected (Based on Threat Assessment): [N]
+Checks Marked N/A: [N]**
 **Passed:** [N]
 **Failed:** [N]
 **Partial:** [N]
@@ -189,8 +201,9 @@
 
 - [ ] **APPROVE** - Ship as-is  
 - [ ] **APPROVE WITH FIXES** - Ship after listed fixes are completed  
-- [ ] **BLOCK** - Do not ship until critical findings are resolved  
-- [ ] **NEEDS RE-REVIEW** - Re-run SAILORS after changes are made  
+- [ ] **BLOCK** - Do not ship until critical findings are resolved
+- [ ] **NEEDS RE-REVIEW** - Re-run SAILORS after changes are made
+- [ ] **NEEDS THREAT MODEL** - Threat model missing. Run STRIDE or MAESTRO first, then re-run SAILORS
 
 **Sign-off:** [Reviewer name and date]  
 
