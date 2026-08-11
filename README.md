@@ -156,7 +156,7 @@ Cloud AI service hardening is a known gap identified during expert review. Futur
 
 ## Expert Review
 
-SAILORS underwent expert review by Rob van der Veer, lead of the OWASP AI Exchange. His feedback refined the positioning from a threat modeling framework to a security controls framework, clarified that threat modeling should precede the checklist to determine relevant checks, and identified cloud AI service configuration as a gap.
+SAILORS has incorporated expert feedback from the OWASP AI security community, including guidance on positioning SAILORS as a controls framework rather than a threat modeling framework, adding threat modeling as a prerequisite step, and identifying cloud AI service configuration as a gap.
 
 ## Status
 
