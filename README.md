@@ -106,8 +106,8 @@ SAILORS is cross-referenced against:
 - OWASP Top 10 for Agentic Applications (2026)
 - MITRE ATLAS tactics, where applicable at the capability level
 
-The full mapping table is in [mapping.md](mapping.md). A coverage matrix showing what SAILORS covers directly, partially, and what companion controls fill the gaps is in [docs/owasp-coverage-matrix.md]**
-(https://github.com/vinayavasu/SAILORS/blob/main/docs/owasp-coverage-matrix.md)**
+The full mapping table is in [mapping.md](mapping.md). A coverage matrix showing what SAILORS covers directly, partially, and what companion controls fill the gaps is in **[docs/owasp-coverage-matrix.md]**
+(https://github.com/vinayavasu/SAILORS/blob/main/docs/owasp-coverage-matrix.md)
 
 SAILORS provides direct or partial design-time coverage for most capability-level OWASP LLM and Agentic risks. For architecture-level and runtime risks (supply chain, data poisoning, unbounded consumption, inter-agent communication), SAILORS defines companion controls rather than extending the 7-check scope.
 
