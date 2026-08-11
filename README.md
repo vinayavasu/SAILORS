@@ -180,7 +180,7 @@ Current status: v1.0. Seeking practitioner feedback from teams shipping AI capab
 
 ### v1.1 (August 2026)
 
-- Repositioned SAILORS from "threat modeling framework" to "security controls framework" based on expert review by Rob van der Veer (OWASP AI Exchange lead).
+- Repositioned SAILORS from "threat modeling framework" to "security controls framework" based on expert review.
 - Added "What SAILORS Is (and Is Not)" section to clarify positioning.
 - Added threat modeling as a prerequisite step in "How to Use It".
 - Added "Known Limitations" section documenting cloud AI service configuration gap.
