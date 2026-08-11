@@ -8,26 +8,31 @@ SAILORS fills that gap.
 
 ## Where SAILORS Fits
 
-| Framework | Scope | Question it answers |
+SAILORS is a feature-level security controls framework. It sits between threat modeling and runtime enforcement:
+
+| Layer | Question | Examples |
 |---|---|---|
-| STRIDE | Traditional systems | What can go wrong with this system's data flows? |
-| MAESTRO | Agentic AI architectures | What can go wrong across this multi-agent system? |
-|**SAILORS**|**Individual AI capabilities**|**What controls do we verify before this specific AI feature ships, and again at every significant change?**|
+| Threat Modeling | What can go wrong? | STRIDE, PASTA, MAESTRO, TMA Playground, ThreatModeler |
+| **Controls Verification** | **What controls do we verify before shipping?** | **SAILORS** |
+| Runtime Enforcement | Are controls actually working? | Belay, LLM Guard, NeMo Guardrails, HiddenLayer |
 
+### What SAILORS Is
 
-SAILORS is designed to be used at the feature level: a single RAG pipeline, a single tool-calling capability, a single LLM-backed endpoint, not the whole system or the whole agent architecture. It's meant to be fast enough to run in a design review, not just a compliance exercise.
+SAILORS verifies what controls exist before one AI capability ships. It is a checklist, not a tool. It is a review process, not a risk assessment.
 
-## What SAILORS Is (and Is Not)
+### What SAILORS Is Not
 
-**SAILORS is a controls framework.** It tells you what controls to verify before shipping an AI feature.
+- **Not a threat modeling framework.** It does not identify threats. It verifies controls. Threat modeling (STRIDE, MAESTRO) tells you what can go wrong. SAILORS tells you what to check to prevent it. They work together: threat model first to identify relevant risks, then use SAILORS to verify the controls that address those risks.
+- **Not a runtime enforcement tool.** It does not enforce controls at runtime. Use runtime tools (e.g., Belay, LLM Guard, NeMo Guardrails) for enforcement.
+- **Not an organizational governance framework.** Use NIST AI RMF or ISO 42001 for governance.
+- **Not exhaustive.** SAILORS is a curated selection of controls, not a complete list. Cloud AI service configuration is a known gap.
 
-**SAILORS is not a threat modeling framework.** It does not identify threats. It verifies controls. Threat modeling (STRIDE, MAESTRO) tells you what can go wrong. SAILORS tells you what to check to prevent it. They work together: threat model first to identify relevant risks, then use SAILORS to verify the controls that address those risks.
+### How to Use SAILORS in the Workflow
 
-**SAILORS is not a runtime enforcement tool.** It does not enforce controls at runtime. Use runtime tools (e.g., Belay, LLM Guard, NeMo Guardrails) for enforcement.
-
-**SAILORS is not an organizational governance framework.** Use NIST AI RMF or ISO 42001 for governance.
-
-**Not all 7 checks apply to every AI feature.** The review begins with a quick threat assessment to determine which checks are relevant for the specific capability being shipped.
+1. Threat model the AI capability (using STRIDE or MAESTRO) to identify what can go wrong.
+2. Use the threat model to determine which SAILORS checks are relevant.
+3. Run only the relevant SAILORS checks in 30 minutes.
+4. Document gaps and remediate before shipping.
 
 ## The Framework
 
