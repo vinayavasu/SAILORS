@@ -1,8 +1,8 @@
 # SAILORS
 
-**A practitioner-level threat modeling framework for individual AI capabilities.**
+**A feature-level security controls framework for individual AI capabilities.**
 
-STRIDE was built for traditional software systems. MAESTRO addresses agentic AI systems at the architecture level. Neither answers the question a team actually asks the moment they say "we're adding this AI feature": **what do we check before we ship it?**
+STRIDE was built for traditional software systems. MAESTRO addresses agentic AI systems at the architecture level. Neither answers the question a team actually asks the moment they say "we're adding this AI feature": **what controls do we verify before we ship it?**
 
 SAILORS fills that gap.
 
@@ -12,9 +12,22 @@ SAILORS fills that gap.
 |---|---|---|
 | STRIDE | Traditional systems | What can go wrong with this system's data flows? |
 | MAESTRO | Agentic AI architectures | What can go wrong across this multi-agent system? |
-| **SAILORS** | **Individual AI capabilities** | **What do we check before this specific AI feature ships, and again at every significant change?** |
+|**SAILORS**|**Individual AI capabilities**|**What controls do we verify before this specific AI feature ships, and again at every significant change?**|
+
 
 SAILORS is designed to be used at the feature level: a single RAG pipeline, a single tool-calling capability, a single LLM-backed endpoint, not the whole system or the whole agent architecture. It's meant to be fast enough to run in a design review, not just a compliance exercise.
+
+## What SAILORS Is (and Is Not)
+
+**SAILORS is a controls framework.** It tells you what controls to verify before shipping an AI feature.
+
+**SAILORS is not a threat modeling framework.** It does not identify threats. It verifies controls. Threat modeling (STRIDE, MAESTRO) tells you what can go wrong. SAILORS tells you what to check to prevent it. They work together: threat model first to identify relevant risks, then use SAILORS to verify the controls that address those risks.
+
+**SAILORS is not a runtime enforcement tool.** It does not enforce controls at runtime. Use runtime tools (e.g., Belay, LLM Guard, NeMo Guardrails) for enforcement.
+
+**SAILORS is not an organizational governance framework.** Use NIST AI RMF or ISO 42001 for governance.
+
+**Not all 7 checks apply to every AI feature.** The review begins with a quick threat assessment to determine which checks are relevant for the specific capability being shipped.
 
 ## The Framework
 
@@ -55,11 +68,13 @@ AIBOM tells you what AI capabilities exist and what changed. SAILORS tells you w
 ## How to Use It
 
 1. Identify the AI capability being shipped: a feature, not a full system.
-2. Open the [review template](templates/sailors-review-template.md).
-3. Walk each SAILORS letter as a checklist item against that capability.
-4. Flag gaps as findings, prioritize by exploitability and blast radius.
-5. Document the decision: ship, ship with fixes, or block.
-6. Re-run at each significant capability change (use the AIBOM trigger matrix to know which checks to re-run).
+2. Threat model the capability (using STRIDE or MAESTRO) to identify what can go wrong.
+3. Use the threat model to determine which SAILORS checks are relevant for this capability.
+4. Open the review template.
+5. Walk only the relevant SAILORS checks as checklist items against that capability.
+6. Flag gaps as findings, prioritize by exploitability and blast radius.
+7. Document the decision: ship, ship with fixes, or block.
+8. Re-run at each significant capability change (use the AIBOM trigger matrix to know which checks to re-run).
 
 A worked example is included in `/examples`.
 
@@ -126,6 +141,23 @@ The README distinguishes the frameworks as follows:
 
 A worked comparison of SAILORS and Praxen/RAISE against a deliberately broken demo agent named **FinBot** is in `/praxen-comparison`. It includes a full FinBot analysis report.
 
+## Known Limitations
+
+SAILORS is a curated selection of controls, not an exhaustive list. The following areas are not covered:
+
+- Cloud AI service selection and configuration (e.g., Azure OpenAI, AWS Bedrock settings for model input protection)
+- Whole system architecture (use STRIDE)
+- Multi-agent trust boundaries (use MAESTRO)
+- Runtime monitoring and enforcement (use Belay, LLM Guard, NeMo Guardrails)
+- Organizational AI governance (use NIST AI RMF or ISO 42001)
+- Adversarial ML model attacks (use MITRE ATLAS)
+
+Cloud AI service hardening is a known gap identified during expert review. Future versions may add a cloud configuration check.
+
+## Expert Review
+
+SAILORS underwent expert review by Rob van der Veer, lead of the OWASP AI Exchange. His feedback refined the positioning from a threat modeling framework to a security controls framework, clarified that threat modeling should precede the checklist to determine relevant checks, and identified cloud AI service configuration as a gap.
+
 ## Status
 
 SAILORS is an early-stage, open framework with:
@@ -140,6 +172,14 @@ SAILORS is an early-stage, open framework with:
 Current status: v1.0. Seeking practitioner feedback from teams shipping AI capabilities. See the [review template](templates/sailors-review-template.md) to try it on one of your features.
 
 ## Changelog
+
+### v1.1 (August 2026)
+
+- Repositioned SAILORS from "threat modeling framework" to "security controls framework" based on expert review by Rob van der Veer (OWASP AI Exchange lead).
+- Added "What SAILORS Is (and Is Not)" section to clarify positioning.
+- Added threat modeling as a prerequisite step in "How to Use It".
+- Added "Known Limitations" section documenting cloud AI service configuration gap.
+- Added "Expert Review" section crediting Rob van der Veer.
 
 ### v1.0 (August 2026)
 
