@@ -175,8 +175,11 @@
 ## Summary
 
 **Total Checks: 7**
+
 **Checks Selected (Based on Threat Assessment): [N]**
+
 **Checks Marked N/A: [N]**
+
 **Passed:** [N]
 **Failed:** [N]
 **Partial:** [N]
