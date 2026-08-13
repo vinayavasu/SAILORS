@@ -184,7 +184,7 @@ Current status: v1.0. Seeking practitioner feedback from teams shipping AI capab
 - Added "What SAILORS Is (and Is Not)" section to clarify positioning.
 - Added threat modeling as a prerequisite step in "How to Use It".
 - Added "Known Limitations" section documenting cloud AI service configuration gap.
-- Added "Expert Review" section crediting Rob van der Veer.
+
 
 ### v1.0 (August 2026)
 
