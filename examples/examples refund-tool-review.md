@@ -8,10 +8,14 @@ This is a synthetic capability, but every finding maps to a real pattern seen in
 
 ## Capability Information
 
-**Capability Name:** Support Assistant — new `refund_tool`
+**Capability Name:** Support Assistant - new `refund_tool`
+
 **Owner:** Payments Platform team
+
 **Date:** 2026-08-20
+
 **Reviewers:** Vinaya Vasudevan (security), Priya M. (payments PM), Sam T. (platform)
+
 
 ## AIBOM Snapshot
 
