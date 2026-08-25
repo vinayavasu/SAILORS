@@ -114,6 +114,15 @@ The scanner, a test file, and example output are in [`poc/`](poc/).
 
 ---
 
+# Worked Examples
+
+Two examples of applying SAILORS to real capabilities. They cover different situations:
+
+- [`refund-capability-walkthrough.md`](refund-capability-walkthrough.md): prose walkthrough that teaches the thinking behind each of the seven checks. Best if you are learning what each check means in practice. About 15 minutes to read.
+- [`refund-tool-review.md`](refund-tool-review.md): a completed review triggered by an AIBOM change (new refund tool added to an existing assistant). Shows the trigger matrix picking a subset of checks and what the thirty-minute review actually produces. Best if you want to see the artifact you would hand to a release manager.
+
+If you have run SAILORS on one of your own capabilities and want to contribute an anonymized write-up, see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
 ## Mapping to existing standards
 
 SAILORS is cross-referenced against:
