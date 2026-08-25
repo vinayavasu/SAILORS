@@ -173,7 +173,7 @@ v1.1. Actively seeking practitioner feedback from teams shipping AI capabilities
 
 ## Contributing
 
-The most useful contribution right now is a real capability write-up. Anonymize the names. Keep the findings honest. Three concrete ways to help are in [CONTRIBUTING.md](CONTRIBUTING.md).
+The most useful contribution right now is a real capability write-up. Anonymize the names. Keep the findings honest. Three concrete ways to help are in [CONTRIBUTING.md](https://github.com/vinayavasu/SAILORS/blob/main/Contributing.md).
 
 Issues and pull requests welcome.
 
