@@ -1,6 +1,6 @@
 # AIBOM Trigger for SAILORS Reviews
 
-## Core Concept
+## Core concept
 
 AIBOM (AI Bill of Materials) tells you what AI capabilities exist and when they change. SAILORS tells you what to review before that capability ships.
 
@@ -8,7 +8,7 @@ AIBOM is the trigger. SAILORS is the review. They are separate things that work 
 
 ---
 
-## How It Works
+## How it works
 
 ```
 AIBOM identifies an AI capability or a change to one
@@ -31,7 +31,7 @@ Capability ships, ships with fixes, or is blocked
 
 ---
 
-## Minimal AIBOM Fields
+## Minimal AIBOM fields
 
 An AIBOM entry for one AI capability should contain at minimum:
 
@@ -55,7 +55,7 @@ An AIBOM entry for one AI capability should contain at minimum:
 
 ---
 
-## Example AIBOM Entry (YAML)
+## Example AIBOM entry (YAML)
 
 ```yaml
 capability_id: cap-001
@@ -88,7 +88,7 @@ review_status: approved
 
 ---
 
-## Trigger Events
+## Trigger events
 
 A SAILORS review should be triggered when any of these AIBOM changes occur:
 
@@ -107,7 +107,7 @@ A SAILORS review should be triggered when any of these AIBOM changes occur:
 
 ---
 
-## Trigger Matrix
+## Trigger matrix
 
 Not every change requires all 7 checks. The trigger matrix tells you which checks to re-run based on what changed:
 
@@ -129,9 +129,9 @@ This means a team that adds a new tool to an existing capability only needs to r
 
 ---
 
-## Workflow Integration
+## Workflow integration
 
-### Option 1: Pull Request Trigger (Recommended)
+### Option 1: Pull request trigger (recommended)
 
 1. Developer opens a PR that adds or changes an AI capability
 2. PR template requires updating the AIBOM entry for that capability
@@ -139,7 +139,7 @@ This means a team that adds a new tool to an existing capability only needs to r
 4. Reviewer checks the SAILORS review in the PR
 5. PR cannot merge until SAILORS review is approved
 
-### Option 2: CI/CD Gate (Future)
+### Option 2: CI/CD gate (future)
 
 1. Developer opens a PR
 2. CI pipeline detects AIBOM changes (diff on aibom.yaml)
@@ -148,7 +148,7 @@ This means a team that adds a new tool to an existing capability only needs to r
 5. Manual review still required for judgment calls
 6. PR cannot merge until SAILORS review is approved
 
-### Option 3: Manual Trigger (Simplest)
+### Option 3: Manual trigger (simplest)
 
 1. Team is about to ship an AI capability
 2. Someone fills out the AIBOM entry
@@ -160,7 +160,7 @@ Start with Option 3. Move to Option 1 when the team is comfortable. Option 2 is 
 
 ---
 
-## Example Workflow
+## Example workflow
 
 **Scenario:** Team is adding a new tool (send-slack-message) to an existing HR Q&A RAG Bot.
 
@@ -193,13 +193,15 @@ tools:
 
 ---
 
-## Positioning Statement (Use This When Explaining)
+## Positioning statement
 
-"AIBOM is the inventory. SAILORS is the review. When your AIBOM changes, meaning you added a new AI capability, swapped a model, added a tool, or expanded permissions, SAILORS tells you exactly which checks to re-run before that change ships. Not all 7 checks every time, just the ones affected by the change. This makes SAILORS scalable for teams that ship AI features regularly."
+"AIBOM is the inventory. SAILORS is the review.
+
+When your AIBOM changes (new capability, swapped model, added tool, expanded permissions), SAILORS tells you exactly which checks to re-run before the change ships. Not all 7 every time. Just the ones affected. That is what makes SAILORS work for teams that ship AI features regularly."
 
 ---
 
-## What AIBOM Trigger Is NOT
+## What AIBOM trigger is not
 
 - It is not a new framework. It is a workflow that connects AIBOM (inventory) to SAILORS (review).
 - It is not automated yet. The trigger matrix is a manual reference. CI integration is future work.
