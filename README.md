@@ -1,4 +1,3 @@
-====================
 # SAILORS
 
 **A feature-level security controls framework for individual AI capabilities.**
