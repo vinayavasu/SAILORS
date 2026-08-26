@@ -48,3 +48,8 @@ O now has two trigger conditions (action-gating and scope-expansion-gating), bot
 ## Note on the 2026 update (August 2026)
 
 Mapping updated to reflect OWASP LLM Top 10 2026 (released August 4, 2026) and OWASP Agentic Top 10 2026. The previous mapping used 2025 OWASP IDs. See the [changelog](CHANGELOG.md) for specific changes.
+
+
+## Note on AST10 (August 2026)
+
+Talks and slide materials reference the OWASP Agentic Skills Top 10 (AST10) as a companion checklist when a capability uses agentic skills. AST10 is not yet folded into the combined mapping table above; the formal crosswalk is planned for v1.2. Until then, treat AST10 as a companion reference alongside SAILORS, not a replacement column in this table.
